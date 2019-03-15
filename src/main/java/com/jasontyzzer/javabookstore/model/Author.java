@@ -7,7 +7,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table(name = "authors")
+@Table(name = "author")
 public class Author {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,7 +19,7 @@ public class Author {
     @JoinTable(name = "writtenby",
     joinColumns = {@JoinColumn(name = "authorid")},
     inverseJoinColumns = {@JoinColumn(name = "bookid")})
-    @JsonIgnoreProperties("authors")
+//    @JsonIgnoreProperties("authors")
     private Set<Book> books = new HashSet<>();
 
     public Author(){
