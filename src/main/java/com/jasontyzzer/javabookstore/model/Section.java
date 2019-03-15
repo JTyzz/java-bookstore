@@ -20,5 +20,27 @@ public class Section {
 
     }
 
+    public long getSectionid() {
+        return sectionid;
+    }
 
+    public void setSectionid(long sectionid) {
+        this.sectionid = sectionid;
+    }
+
+    public String getSectionname() {
+        return sectionname;
+    }
+
+    public void setSectionname(String sectionname) {
+        this.sectionname = sectionname;
+    }
+
+    public Set<Book> getBooks() {
+        return books;
+    }
+
+    public void setBooks(Set<Book> books) {
+        this.books = books;
+    }
 }
