@@ -1,8 +1,6 @@
 package com.jasontyzzer.javabookstore.controller;
 
-import com.jasontyzzer.javabookstore.model.Book;
 import com.jasontyzzer.javabookstore.model.Section;
-import com.jasontyzzer.javabookstore.repository.BookRepository;
 import com.jasontyzzer.javabookstore.repository.SectionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;

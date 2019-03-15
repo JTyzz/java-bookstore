@@ -1,6 +1,10 @@
 package com.jasontyzzer.javabookstore.model;
 
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+
 import javax.persistence.*;
+import java.util.Arrays;
+import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -46,5 +50,12 @@ public class User {
 
     public void setRole(String role) {
         this.role = role;
+    }
+
+
+    public List<SimpleGrantedAuthority> getAuthority()
+    {
+        String myRole = "ROLE_" + this.role.toUpperCase();
+        return Arrays.asList(new SimpleGrantedAuthority(myRole));
     }
 }

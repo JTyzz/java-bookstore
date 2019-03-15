@@ -19,7 +19,6 @@ public class Author {
     @JoinTable(name = "writtenby",
     joinColumns = {@JoinColumn(name = "authorid")},
     inverseJoinColumns = {@JoinColumn(name = "bookid")})
-//    @JsonIgnoreProperties("authors")
     private Set<Book> books = new HashSet<>();
 
     public Author(){

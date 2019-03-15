@@ -7,7 +7,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table(name = "book")
+@Table (name = "book")
 public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,13 +15,12 @@ public class Book {
     private String booktitle;
     private String isbn;
     private int copy;
-    private long sectionid;
+
+    @OneToMany(mappedBy = "book")
+    private Set<Section> sections = new HashSet<>();
 
     @ManyToMany(mappedBy = "books")
     private Set<Author> authors = new HashSet<>();
-
-    @OneToMany(mappedBy = "book")
-    private Section section;
 
     public Book(){
 
@@ -59,12 +58,12 @@ public class Book {
         this.copy = copy;
     }
 
-    public long getSectionid() {
-        return sectionid;
+    public Set<Section> getSections() {
+        return sections;
     }
 
-    public void setSectionid(long sectionid) {
-        this.sectionid = sectionid;
+    public void setSections(Set<Section> sections) {
+        this.sections = sections;
     }
 
     public Set<Author> getAuthors() {
@@ -73,13 +72,5 @@ public class Book {
 
     public void setAuthors(Set<Author> authors) {
         this.authors = authors;
-    }
-
-    public Section getSection() {
-        return section;
-    }
-
-    public void setSection(Section section) {
-        this.section = section;
     }
 }

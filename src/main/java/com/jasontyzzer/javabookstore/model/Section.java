@@ -5,16 +5,17 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table(name = "section")
+@Table (name = "section")
 public class Section {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private long sectionid;
-    private String sectionname;
+    private String name;
 
     @ManyToOne
     @JoinColumn(name = "bookid")
-    private Set<Book> books = new HashSet<>();
+    private Book book;
 
     public Section() {
 
@@ -28,19 +29,19 @@ public class Section {
         this.sectionid = sectionid;
     }
 
-    public String getSectionname() {
-        return sectionname;
+    public String getName() {
+        return name;
     }
 
-    public void setSectionname(String sectionname) {
-        this.sectionname = sectionname;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public Set<Book> getBooks() {
-        return books;
+    public Book getBook() {
+        return book;
     }
 
-    public void setBooks(Set<Book> books) {
-        this.books = books;
+    public void setBook(Book book) {
+        this.book = book;
     }
 }
